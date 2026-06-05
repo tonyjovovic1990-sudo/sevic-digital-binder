@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEVIC DIGITAL BINDER</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="brand-header">
+    <div class="brand-card">
+      <img src="sevic-logo.png" alt="Sevic Inc logo" class="brand-logo" />
+      <div class="brand-text">
+        <h1>SEVIC DIGITAL BINDER</h1>
+        <p>Driver Document Portal</p>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mainNav">
+    <button id="driverBtn" onclick="showView('driver')">Driver View</button>
+    <button id="adminBtn" class="hidden" onclick="showAdminLogin()">Admin Login</button>
+    <button id="adminDashBtn" class="hidden" onclick="showView('admin')">Admin Dashboard</button>
+    <button id="logoutBtn" class="hidden" onclick="adminLogout()">Admin Logout</button>
+  </nav>
+
+  <main>
+    <section id="adminLogin" class="card hidden">
+      <h2>Admin Login</h2>
+      <input id="adminPin" type="password" placeholder="Admin PIN" />
+      <button onclick="adminLogin()">Open Admin Dashboard</button>
+      <p id="adminLoginMsg" class="warn"></p>
+    </section>
+
+    <section id="admin" class="card hidden">
+      <div class="section-title">
+        <img src="sevic-logo.png" alt="Sevic Inc" class="mini-logo" />
+        <h2>Admin Dashboard</h2>
+      </div>
+      <div class="grid">
+        <div>
+          <h3>Add Unit</h3>
+          <input id="unitNumber" placeholder="Unit number e.g. T638324" />
+          <input id="unitPin" placeholder="Driver PIN e.g. 12345" />
+          <button onclick="addUnit()">Add Unit</button>
+        </div>
+        <div>
+          <h3>Upload Binder PDF</h3>
+          <select id="uploadUnit"></select>
+          <select id="docType">
+            <option value="Whole binder">Whole binder</option>
+          </select>
+          <input id="expirationDate" type="date" title="Optional expiration date" />
+          <input id="pdfFile" type="file" accept="application/pdf" />
+          <button onclick="uploadDocument()">Upload PDF</button>
+          <p class="small">Upload one merged PDF per truck. Category is fixed as Whole binder.</p>
+        </div>
+      </div>
+
+      <h3>Units</h3>
+      <input id="unitSearch" placeholder="Search unit number..." oninput="renderUnits()" />
+      <div id="unitList"></div>
+    </section>
+
+    <section id="driver" class="card">
+      <div class="section-title">
+        <img src="sevic-logo.png" alt="Sevic Inc" class="mini-logo" />
+        <h2>Driver Binder</h2>
+      </div>
+      <input id="driverUnit" placeholder="Unit number" />
+      <input id="driverPin" placeholder="PIN" />
+      <button onclick="driverLogin()">Open Binder</button>
+      <div id="driverDocs"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

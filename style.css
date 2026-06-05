@@ -1,0 +1,44 @@
+:root {
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --bg: #f4f6f8;
+  --green: #16a34a;
+  --blue: #2563eb;
+  --gray: #4b5563;
+}
+
+body { font-family: Arial, sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+.brand-header { background: #ffffff; border-bottom: 1px solid var(--line); padding: 26px 18px; }
+.brand-card { max-width: 1050px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 26px; }
+.brand-logo { width: min(360px, 48vw); height: auto; display: block; }
+.brand-text { border-left: 1px solid var(--line); padding-left: 26px; }
+.brand-text h1 { margin: 0; font-size: 34px; letter-spacing: .5px; font-weight: 800; }
+.brand-text p { margin: 6px 0 0; font-size: 17px; color: var(--muted); font-weight: 600; }
+nav { display: flex; gap: 10px; justify-content: center; padding: 16px; background: #111827; border-bottom: 1px solid #0b1220; flex-wrap: wrap; }
+button { background: var(--green); color: white; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: bold; margin: 4px 4px 4px 0; }
+button:hover { opacity: .9; }
+button.secondary { background: var(--blue); }
+button.gray { background: var(--gray); }
+main { max-width: 1050px; margin: 24px auto; padding: 0 16px; }
+.card { background: white; border-radius: 14px; padding: 22px; box-shadow: 0 3px 14px rgba(0,0,0,.08); border: 1px solid rgba(17, 24, 39, .05); }
+.hidden { display: none; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.section-title { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.section-title h2 { margin: 0; }
+.mini-logo { width: 128px; height: auto; display: block; }
+input, select { width: 100%; box-sizing: border-box; padding: 10px; margin: 7px 0; border: 1px solid #cbd5e1; border-radius: 8px; }
+.unit, .doc { border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin: 10px 0; background: #fafafa; }
+a { color: var(--blue); font-weight: bold; }
+.small { font-size: 13px; color: var(--muted); }
+.warn { color: #b45309; font-weight: bold; }
+.good { color: #15803d; font-weight: bold; }
+.actions { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+  .brand-card { flex-direction: column; gap: 14px; }
+  .brand-logo { width: min(300px, 80vw); }
+  .brand-text { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 14px; text-align: center; }
+  .brand-text h1 { font-size: 30px; }
+  .mini-logo { width: 105px; }
+}
